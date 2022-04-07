@@ -12,7 +12,6 @@ As much as possible, we have tried to provide enough tooling to get you up and r
 
 In trying to keep this template as generic and reusable as possible, there are some things that were omitted out of necessity and others that need a little tweaking. Before you begin developing in earnest, there are a few changes that need to be made.
 
-- [ ] Select an appropriate license for your project. This can easily be achieved through the 'Add File' button on the GitHub UI, naming the file `LICENSE`, and selecting your desired license from the provided list.
 - [ ] Update the `<License name>` placeholder in this file to reflect the name of the license you selected above
 - [ ] Replace `[INSERT CONTACT METHOD]` in [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md) with a suitable communication channel
 - [ ] Change references to `org_name` to the name of the org your repo belongs to (eg. `wayfair-incubator`)
@@ -80,15 +79,16 @@ Contributions are what make the open source community such an amazing place to l
 
 ## License
 
-Distributed under the `<License name>` License. See `LICENSE` for more information.
+Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
 
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email
+[![Gmail](https://img.shields.io/badge/OpenSource@wayfair.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:OpenSource@wayfair.com)
 
-Project Link: [https://github.com/org_name/repo_name](https://github.com/org_name/repo_name)
+[![Gatsby](https://img.shields.io/badge/wayfair.github.io-%23663399.svg?style=for-the-badge&logo=gatsby&logoColor=white)](https://wayfair.github.io)
+
+[![Twitter](https://img.shields.io/badge/wayfairtech-%231DA1F2.svg?style=for-the-badge&logo=Twitter&logoColor=white)](https://twitter.com/wayfairtech)
 
 ## Acknowledgements
 
-This template was adapted from
-[https://github.com/othneildrew/Best-README-Template](https://github.com/othneildrew/Best-README-Template).
+[Repository template](https://github.com/wayfair-incubator/oss-template) made with  💜 by Wayfair's [Open Source Program Office](https://wayfair.github.io).
