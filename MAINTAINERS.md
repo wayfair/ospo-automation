@@ -1,5 +1,3 @@
 # Maintainers
 
-- [GitHub Username](https://github.com/username)
-- [GitHub Username](https://github.com/username)
-- [GitHub Username](https://github.com/username)
+[![GitHub](https://img.shields.io/badge/github.com/wayfair-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/wayfair)
