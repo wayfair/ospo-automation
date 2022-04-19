@@ -10,43 +10,36 @@
 
 Automation workflows for Wayfair's [Open Source Program Office](https://wayfair.github.io).
 
-## Getting Started
+## Basic Usage
 
-To get a local copy up and running follow these simple steps.
+Currently, the OSPO Automation project has a single workflow available for creating repository forks.
 
-### Prerequisites
+To trigger this job manually, follow these steps:
 
-This is an example of how to list things you need to use the software and how to install them.
+1. Navigate to the [Actions](https://github.com/wayfair/ospo-automation/actions) tab of the project
+2. Locate the workflow you wish to run - in this case: [fork](https://github.com/lelia/ospo-platform/actions/workflows/fork.yml)
+3. Under the run history, you should see: `This workflow has a workflow_dispatch event trigger`
+4. Click the `Run workflow` button next to this message, and a dialogue box should open
+5. Fill out the required inputs to run the [Forker](https://github.com/wayfair-incubator/forker) action
+6. Click the green `Run workflow` button at the bottom to manually trigger the workflow
+7. Watch your workflow spin into action in the run history!
 
-- npm
+## Adding Workflows
 
-  ```sh
-  npm install npm@latest -g
-  ```
+To add new workflows to the project, follow these simple steps:
 
-### Installation
-
-1. Clone the repo
+1. Clone the repository:
 
    ```sh
    git clone https://github.com/wayfair/ospo-automation.git
    ```
 
-2. Install NPM packages
+2. Create new GitHub workflows under `.github/workflows`:
 
    ```sh
-   npm install
+   cd .github/workflows
+   touch my-cool-workflow.yml
    ```
-
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://wayfair.github.io) or the [Wiki](https://github.com/wayfair/ospo-automation/wiki)_
-
-## Roadmap
-
-See the [open issues](https://github.com/wayfair/ospo-automation/issues) for a list of proposed features (and known issues).
 
 ## Contributing
 
