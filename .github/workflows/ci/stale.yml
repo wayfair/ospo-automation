@@ -1,6 +1,6 @@
-name: Identify and close stale issues and pull requests
+name: stale
 
-on:
+on: # Identify and close stale issues / pull requests
   schedule:
   - cron: "0 0 * * 0"
 
