@@ -1,0 +1,41 @@
+name: fork
+
+on: # Only trigger on manual input
+  workflow_dispatch:
+    inputs:
+      owner:
+        description: 'Owner of GitHub repo to be forked'
+        required: true
+      repo:
+        description: 'GitHub repo to be forked'
+        required: true
+      org:
+        description: 'GitHub org to fork the repo into'
+        required: true
+        default: wayfair-contribs
+      user:
+        description: 'GitHub user requesting the fork'
+        required: true
+      addUser:
+        description: 'Add GitHub user to org if missing?'
+        required: true
+        default: true
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: wayfair-incubator/forker@releases/v0.0.4
+        name: "⑂ fork request"
+        with:
+          # Enforce current list of OSPO-approved licenses
+          licenseAllowlist: "0bsd\napache-2.0\nbsd-2-clause\nbsd-3-clause\nmit" 
+          # Using API token for lhasa-ospo service account
+          token: ${{ secrets.OSPO_API_TOKEN }}
+          # Manual user inputs from workflow dispatch
+          repo:  ${{ github.event.inputs.repo }}
+          owner: ${{ github.event.inputs.owner }}
+          org: ${{ github.event.inputs.org }}
+          user: ${{ github.event.inputs.user }}
+          addUser: ${{ github.event.inputs.addUser }}
