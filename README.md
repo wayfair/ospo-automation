@@ -1,6 +1,6 @@
 # OSPO Automation
 
-[![Release](https://img.shields.io/badge/release-v0.0.2-blue.svg)](CHANGELOG.md)
+[![Release](https://img.shields.io/badge/release-v0.0.3-blue.svg)](CHANGELOG.md)
 [![Lint](https://github.com/wayfair/ospo-automation/actions/workflows/lint.yml/badge.svg?branch=main)](https://github.com/wayfair/ospo-automation/actions/workflows/lint.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-orange.svg)](LICENSE)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)](CODE_OF_CONDUCT.md)
@@ -14,10 +14,10 @@ Automation workflows for Wayfair's [Open Source Program Office](https://wayfair.
 
 Currently, the OSPO Automation project has a single workflow available for creating repository forks.
 
-To trigger this job manually, follow these steps:
+To trigger this workflow manually, follow these steps:
 
 1. Navigate to the [Actions](https://github.com/wayfair/ospo-automation/actions) tab of the project
-2. Locate the workflow you wish to run - in this case: [fork](https://github.com/lelia/ospo-platform/actions/workflows/fork.yml)
+2. Locate the workflow you wish to run - in this case: **[fork](https://github.com/lelia/ospo-platform/actions/workflows/fork.yml)**
 3. Under the run history, you should see: `This workflow has a workflow_dispatch event trigger`
 4. Click the `Run workflow` button next to this message, and a dialogue box should open
 5. Fill out the required [inputs](https://github.com/wayfair-incubator/forker#inputs) to run the `forker` action
