@@ -17,7 +17,7 @@ Currently, the OSPO Automation project has a single workflow available for creat
 To trigger this workflow manually, follow these steps:
 
 1. Navigate to the [Actions](https://github.com/wayfair/ospo-automation/actions) tab of the project
-2. Locate the workflow you wish to run - in this case: **[fork](https://github.com/lelia/ospo-platform/actions/workflows/fork.yml)**
+2. Locate the workflow you wish to run - in this case: **[fork](https://github.com/wayfair/ospo-automation/actions/workflows/fork.yml)**
 3. Under the run history, you should see: `This workflow has a workflow_dispatch event trigger`
 4. Click the `Run workflow` button next to this message, and a dialogue box should open
 5. Fill out the required [inputs](https://github.com/wayfair-incubator/forker#inputs) to run the `forker` action
