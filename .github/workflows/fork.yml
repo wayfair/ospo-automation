@@ -19,7 +19,7 @@ on: # Only trigger on manual input
       addUser:
         description: 'Add GitHub user to org if missing?'
         required: true
-        default: true
+        default: 'true'
 
 jobs:
   run:
