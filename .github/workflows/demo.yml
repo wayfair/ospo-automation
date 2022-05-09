@@ -1,0 +1,54 @@
+name: demo
+
+on:
+  pull_request:
+
+env:
+  ROOT_DIR: "./requests"
+  SCRIPTS_DIR: ".github/workflows/scripts"
+  GITHUB_USER: ${{ github.actor }}
+  GITHUB_PR: ${{ github.event.number }}
+  GITHUB_ORG: "wayfair-contribs"
+  LICENSE_STRING: "0bsd\napache-2.0\nbsd-2-clause\nbsd-3-clause\nmit"
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        ref: ${{ github.event.pull_request.head.ref }}
+    # add some yaml linting here
+    - name: 📦 rename files
+      run: ${SCRIPTS_DIR}/rename.sh
+      shell: bash
+    - name: ✅ push files
+      run: ${SCRIPTS_DIR}/push.sh
+      shell: bash
+    - name: 📑 parse files
+      run: ${SCRIPTS_DIR}/parse.sh
+      shell: bash
+    - name: 🚀 create fork
+      id: fork
+      if: ${{ env.TYPE }} == "fork"
+      uses: lelia/forker@6f1a563e355f9105cc05ec8a67ebda0378ad5794
+      # uses: wayfair-incubator/forker@releases/v0.0.4
+      with:
+        token: ${{ secrets.OSPO_API_TOKEN }}
+        repo:  ${{ env.REPO }}
+        owner: ${{ env.OWNER }}
+        org: ${{ env.GITHUB_ORG }}
+        user: ${{ env.USER }}
+        addUser: true
+        licenseAllowlist: ${{ env.LICENSE_STRING }}
+    - name: 💬 add comment
+      uses: actions/github-script@v6
+      with:
+        script: |
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: "🎉 All set @${{ env.USER }}! \
+            Here's your fork: ${{ steps.fork.outputs.forkUrl }}"
+          })
