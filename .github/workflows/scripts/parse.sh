@@ -20,7 +20,6 @@ else
     exit 1
 fi
 
-
 # Assert user filing PR is the user defined in YAML
 if [[ "${GITHUB_USER}" == "${GITHUB_ACTOR}" ]]; then
     echo "GITHUB_USER=${GITHUB_USER}" >> $GITHUB_ENV
