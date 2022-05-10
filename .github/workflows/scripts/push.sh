@@ -8,5 +8,5 @@ BOT_EMAIL="41898282+github-actions[bot]@users.noreply.github.com"
 
 git config --local user.name ${BOT_USER}
 git config --local user.email ${BOT_EMAIL}
-git commit -m "Process ${GITHUB_USER}'s request (PR #${GITHUB_PR})"
+git commit -m "Process ${GITHUB_ACTOR}'s request (PR #${GITHUB_PR})"
 git push
