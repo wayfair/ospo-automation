@@ -23,6 +23,8 @@ jobs:
       run: ${SCRIPTS_DIR}/rename.sh
       shell: bash
     - name: ✅ push files
+      # only proceed if previous job succeeded
+      if: ${{ success() }}
       run: ${SCRIPTS_DIR}/push.sh
       shell: bash
     - name: 📑 parse files
