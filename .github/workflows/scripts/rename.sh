@@ -16,7 +16,6 @@ if [ "$?" -eq 0 ]; then
         echo -e "Processing user-submitted YAML file: ${YAML_FILE}"
         mkdir -p ${TARGET_DIR}
         echo -e "Moving YAML file to destination: ${DESTINATION}"
-        mv ${BASE_DIR}/${BASE_FILE} ${DESTINATION}
         git mv ${BASE_DIR}/${BASE_FILE} ${DESTINATION}
         echo "REQUEST_FILE=${DESTINATION}" >> $GITHUB_ENV
     done
