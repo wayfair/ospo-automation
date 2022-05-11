@@ -18,7 +18,9 @@ jobs:
     - uses: actions/checkout@v3
       with:
         ref: ${{ github.event.pull_request.head.ref }}
-    # add some yaml linting here
+    # add some yaml linting before processing anything
+    # also need handling for multiple file submissions
+    # alternatively, only parse files from PR ref
     - name: 📦 rename files
       run: ${SCRIPTS_DIR}/rename.sh
       shell: bash
