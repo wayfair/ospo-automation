@@ -24,6 +24,8 @@ jobs:
     - name: 📦 rename files
       run: ${SCRIPTS_DIR}/rename.sh
       shell: bash
+    # should this only happen if parsing succeeds? 
+    # eg. invert the order of these steps?
     - name: ✅ push files
       # only proceed if previous job succeeded
       if: ${{ success() }}
