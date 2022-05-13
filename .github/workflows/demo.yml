@@ -3,9 +3,7 @@ name: demo
 
 on:
   pull_request:
-    # only trigger when PR is opened
-    types: [opened]
-    # testing PR path filtering
+    types: [opened, synchronize, reopened]
     paths:
       - 'requests/**.yml'
       - 'requests/**.yaml'
