@@ -37,14 +37,14 @@ jobs:
       - name: 📑 parse files
         run: ${SCRIPTS_DIR}/parse.sh
         shell: bash
-      - name: 🗄 push files
-        run: ${SCRIPTS_DIR}/push.sh
-        shell: bash
-      - name: ✅ approve PR
-        if: ${{ success() }}
-        uses: hmarr/auto-approve-action@v2
-        with:
-          github-token: ${{ secrets.OSPO_API_TOKEN }}
+      # - name: 🗄 push files
+      #   run: ${SCRIPTS_DIR}/push.sh
+      #   shell: bash
+      # - name: ✅ approve PR
+      #   if: ${{ success() }}
+      #   uses: hmarr/auto-approve-action@v2
+      #   with:
+      #     github-token: ${{ secrets.OSPO_API_TOKEN }}
       - name: 🚀 create fork
         id: fork
         if: ${{ github.event.review.state == 'approved' }} && ${{ env.REQUEST_TYPE }} == "fork"
