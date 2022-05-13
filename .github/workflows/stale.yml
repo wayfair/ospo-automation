@@ -1,3 +1,4 @@
+---
 name: stale
 
 on: # Identify and close stale issues / pull requests

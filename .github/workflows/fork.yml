@@ -1,3 +1,4 @@
+---
 name: fork
 
 on: # Only trigger on manual input

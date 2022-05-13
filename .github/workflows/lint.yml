@@ -1,3 +1,4 @@
+---
 name: lint
 
 on: # Lint any PRs and main branch changes
