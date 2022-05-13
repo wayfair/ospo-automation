@@ -29,8 +29,8 @@ jobs:
       - name: 🧼 lint files
         uses: ibiqlik/action-yamllint@v3
         with:
-          file_or_dir: 'requests/*.yaml requests/*.yml'
-          config_file: '.yamllint.yml'
+          file_or_dir: requests/**
+          config_file: .yamllint.yml
       # - name: 📦 rename files
       #   run: ${SCRIPTS_DIR}/rename.sh
       #   shell: bash
