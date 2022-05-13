@@ -19,7 +19,8 @@ env:
 jobs:
   process:
     runs-on: ubuntu-latest
-    # only run this workflow after PR is approved
+    permissions:
+      pull-requests: write
     steps:
       - uses: actions/checkout@v3
         with:
@@ -32,33 +33,20 @@ jobs:
       - name: 📦 rename files
         run: ${SCRIPTS_DIR}/rename.sh
         shell: bash
-      # should this only happen if parsing succeeds?
-      # eg. invert the order of these steps?
       - name: 📑 parse files
         run: ${SCRIPTS_DIR}/parse.sh
         shell: bash
       - name: 🗄 push files
         run: ${SCRIPTS_DIR}/push.sh
         shell: bash
-  approve:
-    runs-on: ubuntu-latest
-    needs: [process]
-    permissions:
-      pull-requests: write
-    steps:
       - name: ✅ approve PR
+        if: ${{ success() }}
         uses: hmarr/auto-approve-action@v2
         with:
           github-token: ${{ secrets.OSPO_API_TOKEN }}
-  fork:
-    runs-on: ubuntu-latest
-    if: ${{ github.event.review.state == 'approved' }}
-    needs: [process, approve]
-    steps:
-      - uses: actions/checkout@v3
       - name: 🚀 create fork
         id: fork
-        if: ${{ env.REQUEST_TYPE }} == "fork"
+        if: ${{ github.event.review.state == 'approved' }} && ${{ env.REQUEST_TYPE }} == "fork"
         # uses: wayfair-incubator/forker@releases/v0.0.4
         # using forker branch which sets output value for forkUrl
         uses: lelia/forker@6f1a563e355f9105cc05ec8a67ebda0378ad5794
