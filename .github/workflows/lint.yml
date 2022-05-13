@@ -1,7 +1,8 @@
 ---
 name: lint
 
-on: # Lint any PRs and main branch changes
+# Lint any PRs and main branch changes
+on:
   push:
     branches:
       - main

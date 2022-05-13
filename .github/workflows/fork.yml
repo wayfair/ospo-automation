@@ -1,7 +1,8 @@
 ---
 name: fork
 
-on: # Only trigger on manual input
+# Only trigger on manual input
+on:
   workflow_dispatch:
     inputs:
       owner:
