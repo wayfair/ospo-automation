@@ -62,6 +62,7 @@ jobs:
       - name: 💬 add comment
         uses: actions/github-script@v6
         with:
+          github-token: ${{ secrets.OSPO_API_TOKEN }}
           script: |
             github.rest.issues.createComment({
               issue_number: context.issue.number,
