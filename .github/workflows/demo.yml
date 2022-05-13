@@ -31,42 +31,42 @@ jobs:
         with:
           file_or_dir: requests/**
           config_file: .yamllint.yml
-      # - name: 📦 rename files
-      #   run: ${SCRIPTS_DIR}/rename.sh
-      #   shell: bash
-      # - name: 📑 parse files
-      #   run: ${SCRIPTS_DIR}/parse.sh
-      #   shell: bash
-      # - name: 🗄 push files
-      #   run: ${SCRIPTS_DIR}/push.sh
-      #   shell: bash
-      # - name: ✅ approve PR
-      #   if: ${{ success() }}
-      #   uses: hmarr/auto-approve-action@v2
-      #   with:
-      #     github-token: ${{ secrets.OSPO_API_TOKEN }}
-      # - name: 🚀 create fork
-      #   id: fork
-      #   if: ${{ github.event.review.state == 'approved' }} && ${{ env.REQUEST_TYPE }} == "fork"
-      #   # uses: wayfair-incubator/forker@releases/v0.0.4
-      #   # using forker branch which sets output value for forkUrl
-      #   uses: lelia/forker@6f1a563e355f9105cc05ec8a67ebda0378ad5794
-      #   with:
-      #     token: ${{ secrets.OSPO_API_TOKEN }}
-      #     repo: ${{ env.REPO_NAME }}
-      #     owner: ${{ env.REPO_OWNER }}
-      #     org: ${{ env.GITHUB_ORG }}
-      #     user: ${{ env.GITHUB_USER }}
-      #     addUser: true
-      #     licenseAllowlist: ${{ env.LICENSE_STRING }}
-      # - name: 💬 add comment
-      #   uses: actions/github-script@v6
-      #   with:
-      #     script: |
-      #       github.rest.issues.createComment({
-      #         issue_number: context.issue.number,
-      #         owner: context.repo.owner,
-      #         repo: context.repo.repo,
-      #         body: "🎉 All set @${{ env.GITHUB_USER }}! \
-      #         Here's your fork: ${{ steps.fork.outputs.forkUrl }}"
-      #       })
+      - name: 📦 rename files
+        run: ${SCRIPTS_DIR}/rename.sh
+        shell: bash
+      - name: 📑 parse files
+        run: ${SCRIPTS_DIR}/parse.sh
+        shell: bash
+      - name: 🗄 push files
+        run: ${SCRIPTS_DIR}/push.sh
+        shell: bash
+      - name: ✅ approve PR
+        if: ${{ success() }}
+        uses: hmarr/auto-approve-action@v2
+        with:
+          github-token: ${{ secrets.OSPO_API_TOKEN }}
+      - name: 🚀 create fork
+        id: fork
+        if: ${{ github.event.review.state == 'approved' }} && ${{ env.REQUEST_TYPE }} == "fork"
+        # uses: wayfair-incubator/forker@releases/v0.0.4
+        # using forker branch which sets output value for forkUrl
+        uses: lelia/forker@6f1a563e355f9105cc05ec8a67ebda0378ad5794
+        with:
+          token: ${{ secrets.OSPO_API_TOKEN }}
+          repo: ${{ env.REPO_NAME }}
+          owner: ${{ env.REPO_OWNER }}
+          org: ${{ env.GITHUB_ORG }}
+          user: ${{ env.GITHUB_USER }}
+          addUser: true
+          licenseAllowlist: ${{ env.LICENSE_STRING }}
+      - name: 💬 add comment
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: "🎉 All set @${{ env.GITHUB_USER }}! \
+              Here's your fork: ${{ steps.fork.outputs.forkUrl }}"
+            })
