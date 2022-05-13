@@ -1,6 +1,5 @@
 ---
-request_type: 
-fork
+request_type: fork
 github_user: lelia
 repo_owner: tremor-rs
 repo_name: tremor-vscode
