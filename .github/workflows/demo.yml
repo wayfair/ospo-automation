@@ -2,6 +2,12 @@ name: demo
 
 on:
   pull_request:
+    # only trigger when PR is opened
+    types: [ opened ]
+    # testing PR path filtering
+    paths:
+    - 'requests/**.yml'
+    - 'requests/**.yaml'
 
 env:
   ROOT_DIR: "./requests"
