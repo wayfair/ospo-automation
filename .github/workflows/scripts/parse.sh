@@ -10,7 +10,7 @@ REQUEST_TYPE=$(get_yaml_value '.request_type')
 GITHUB_USER=$(get_yaml_value '.github_user')
 REPO_OWNER=$(get_yaml_value '.repo_owner')
 REPO_NAME=$(get_yaml_value '.repo_name')
-REPO_URL="https://github.com/${OWNER}/${REPO}"
+REPO_URL="https://github.com/${REPO_OWNER}/${REPO_NAME}"
 
 # Assert user is requesting a repository fork
 if [[ "${REQUEST_TYPE}" == "fork" ]]; then
