@@ -60,7 +60,7 @@ jobs:
           addUser: true
           licenseAllowlist: ${{ env.LICENSE_STRING }}
       - name: 💬 add comment
-        if: ${{ success() }}
+        if: ${{ steps.fork.outcome == 'success' }}
         uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.OSPO_API_TOKEN }}
