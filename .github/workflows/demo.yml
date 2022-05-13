@@ -47,7 +47,7 @@ jobs:
       #     github-token: ${{ secrets.OSPO_API_TOKEN }}
       - name: 🚀 create fork
         id: fork
-        if: ${{ github.event.review.state == 'approved' }} && ${{ env.REQUEST_TYPE }} == "fork"
+        if: ${{ (github.event.review.state == 'approved') && (env.REQUEST_TYPE == 'fork') }}
         # uses: wayfair-incubator/forker@releases/v0.0.4
         # using forker branch which sets output value for forkUrl
         uses: lelia/forker@6f1a563e355f9105cc05ec8a67ebda0378ad5794
