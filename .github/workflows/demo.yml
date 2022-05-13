@@ -4,11 +4,11 @@ name: demo
 on:
   pull_request:
     # only trigger when PR is opened
-    types: [ opened ]
+    types: [opened]
     # testing PR path filtering
     paths:
-    - 'requests/**.yml'
-    - 'requests/**.yaml'
+      - 'requests/**.yml'
+      - 'requests/**.yaml'
 
 env:
   ROOT_DIR: "./requests"
@@ -24,47 +24,47 @@ jobs:
     # only run this workflow after PR is approved
     if: github.event.review.state == 'approved'
     steps:
-    - uses: actions/checkout@v3
-      with:
-        ref: ${{ github.event.pull_request.head.ref }}
-    # add some yaml linting before processing anything
-    # also need handling for multiple file submissions
-    # alternatively, only parse files from PR ref
-    - name: 📦 rename files
-      run: ${SCRIPTS_DIR}/rename.sh
-      shell: bash
-    # should this only happen if parsing succeeds? 
-    # eg. invert the order of these steps?
-    - name: ✅ push files
-      # only proceed if previous job succeeded
-      if: ${{ success() }}
-      run: ${SCRIPTS_DIR}/push.sh
-      shell: bash
-    - name: 📑 parse files
-      run: ${SCRIPTS_DIR}/parse.sh
-      shell: bash
-    - name: 🚀 create fork
-      id: fork
-      if: ${{ env.TYPE }} == "fork"
-      # uses: wayfair-incubator/forker@releases/v0.0.4
-      # using forker branch which sets output value for forkUrl
-      uses: lelia/forker@6f1a563e355f9105cc05ec8a67ebda0378ad5794
-      with:
-        token: ${{ secrets.OSPO_API_TOKEN }}
-        repo:  ${{ env.REPO_NAME }}
-        owner: ${{ env.REPO_OWNER }}
-        org: ${{ env.GITHUB_ORG }}
-        user: ${{ env.GITHUB_USER }}
-        addUser: true
-        licenseAllowlist: ${{ env.LICENSE_STRING }}
-    - name: 💬 add comment
-      uses: actions/github-script@v6
-      with:
-        script: |
-          github.rest.issues.createComment({
-            issue_number: context.issue.number,
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            body: "🎉 All set @${{ env.GITHUB_USER }}! \
-            Here's your fork: ${{ steps.fork.outputs.forkUrl }}"
-          })
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+      # add some yaml linting before processing anything
+      # also need handling for multiple file submissions
+      # alternatively, only parse files from PR ref
+      - name: 📦 rename files
+        run: ${SCRIPTS_DIR}/rename.sh
+        shell: bash
+      # should this only happen if parsing succeeds?
+      # eg. invert the order of these steps?
+      - name: ✅ push files
+        # only proceed if previous job succeeded
+        if: ${{ success() }}
+        run: ${SCRIPTS_DIR}/push.sh
+        shell: bash
+      - name: 📑 parse files
+        run: ${SCRIPTS_DIR}/parse.sh
+        shell: bash
+      - name: 🚀 create fork
+        id: fork
+        if: ${{ env.TYPE }} == "fork"
+        # uses: wayfair-incubator/forker@releases/v0.0.4
+        # using forker branch which sets output value for forkUrl
+        uses: lelia/forker@6f1a563e355f9105cc05ec8a67ebda0378ad5794
+        with:
+          token: ${{ secrets.OSPO_API_TOKEN }}
+          repo: ${{ env.REPO_NAME }}
+          owner: ${{ env.REPO_OWNER }}
+          org: ${{ env.GITHUB_ORG }}
+          user: ${{ env.GITHUB_USER }}
+          addUser: true
+          licenseAllowlist: ${{ env.LICENSE_STRING }}
+      - name: 💬 add comment
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: "🎉 All set @${{ env.GITHUB_USER }}! \
+              Here's your fork: ${{ steps.fork.outputs.forkUrl }}"
+            })
