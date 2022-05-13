@@ -20,7 +20,7 @@ jobs:
   demo:
     runs-on: ubuntu-latest
     # only run this workflow after PR is approved
-    if: github.event.review.state == 'approved'
+    if: ${{ github.event.review.state == 'approved' }}
     steps:
       - uses: actions/checkout@v3
         with:
