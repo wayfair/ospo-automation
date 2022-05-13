@@ -3,10 +3,10 @@ name: demo
 
 on:
   pull_request:
-    # types: [opened, synchronize, reopened]
+    types: [opened, synchronize, reopened]
     paths:
-      - 'requests/**.yml'
-      - 'requests/**.yaml'
+      - 'requests/*.yml'
+      - 'requests/*.yaml'
 
 env:
   ROOT_DIR: "./requests"
