@@ -4,3 +4,4 @@ extends: default
 rules:
   truthy:
     allowed-values: ['true', 'false', 'on']
+ignore: requests/*.md
