@@ -12,4 +12,4 @@
 - [ ] Task 2
 - [ ] Task 3
 
-🚨 Not the PR template you wanted? Navigate back to the [OSPO Automation PR Menu](?expand=1&template=PULL_REQUEST_TEMPLATE.md)
+🚨 Not the PR template you wanted? Click the `Preview` tab above, then navigate back to the [OSPO Automation PR Menu](?expand=1)!
