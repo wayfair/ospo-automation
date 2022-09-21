@@ -17,11 +17,11 @@ on: # Only trigger on manual input
         description: 'GitHub user requesting the fork'
         required: true
       checkUser:
-        description: 'Enforce organization membership for GitHub user'
+        description: 'Enforce organization membership for GitHub user?'
         required: true
         default: true
       promoteUser:
-        description: 'Promote GitHub user to admin of the forked repo'
+        description: 'Promote GitHub user to admin of the forked repo?'
         required: true
         default: false
 
