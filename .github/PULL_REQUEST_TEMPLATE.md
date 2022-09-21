@@ -1,6 +1,6 @@
 # 🔄 OSPO Automation PR Menu
 
-⚠️ INSTRUCTIONS: Click the `Preview` tab above, then select your desired PR template below!
+🚨 INSTRUCTIONS: Click the `Preview` tab above, then select your desired PR template below!
 
 ## Self-Service Requests
 
