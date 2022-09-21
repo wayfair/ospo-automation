@@ -1,24 +1,13 @@
-## Description
+# OSPO Automation Pull Request Menu
 
-Please provide a meaningful description of what this change will do, or is for. Bonus points for including links to related issues, other PRs, or technical references.
+**💡 Click the `Preview` tab and select your desired PR template:**
 
-Note that by _not_ including a description, you are asking reviewers to do extra work to understand the context of this change, which may lead to your PR taking much longer to review, or result in it not being reviewed at all.
+## Self-Service Requests
 
-## Type of Change
+- ✅ [New Fork Request](?expand=1&template=NEW_FORK_REQUEST.md)
+- ❌ [New Repo Request](?expand=1&template=NEW_REPO_REQUEST.md)
+- ❌ [Repo Migration Request](?expand=1&template=REPO_MIGRATION_REQUEST.md)
 
-- [ ] Bug Fix
-- [ ] New Feature
-- [ ] Breaking Change
-- [ ] Refactor
-- [ ] Documentation
-- [ ] Other (please describe)
+## Developer Contributions
 
-## Checklist
-
-- [ ] I have read the [contributing guidelines](https://github.com/wayfair/ospo-automation/blob/main/CONTRIBUTING.md)
-- [ ] Existing issues have been referenced (where applicable)
-- [ ] I have verified this change is not present in other open pull requests
-- [ ] Functionality is documented
-- [ ] All code style checks pass
-- [ ] New code contribution is covered by automated tests
-- [ ] All new and existing tests pass
+- ✅ [Standard Pull Request](?expand=1&template=STANDARD_PULL_REQUEST.md)
