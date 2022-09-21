@@ -1,13 +1,13 @@
-# OSPO Automation Pull Request Menu
+# 🔄 OSPO Automation PR Menu
 
-**💡 Click the `Preview` tab and select your desired PR template:**
+⚠️ INSTRUCTIONS: Click the `Preview` tab above, then select your desired PR template below!
 
 ## Self-Service Requests
 
-- ✅ [New Fork Request](?expand=1&template=NEW_FORK_REQUEST.md)
-- ❌ [New Repo Request](?expand=1&template=NEW_REPO_REQUEST.md)
-- ❌ [Repo Migration Request](?expand=1&template=REPO_MIGRATION_REQUEST.md)
+- ✅ [Fork a repository](?expand=1&template=fork-request.md)
+- ❌ [Create a new repository](?expand=1&template=repo-request.md)
+- ❌ [Migrate an existing repository](?expand=1&template=migration-request.md)
 
 ## Developer Contributions
 
-- ✅ [Standard Pull Request](?expand=1&template=STANDARD_PULL_REQUEST.md)
+- ✅ [Contribute to the codebase](?expand=1&template=standard-pr.md)
