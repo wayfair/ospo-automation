@@ -1,5 +1,11 @@
 # New Fork Request
 
+## Instructions
+
+1. Step 1
+1. Step 2
+1. Step 3
+
 ## Checklist
 
 - [ ] Task 1
