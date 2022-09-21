@@ -4,9 +4,9 @@
 
 ## Self-Service Requests
 
-- ✅ [Fork a repository](?expand=1&template=fork-request.md)
-- ❌ [Create a new repository](?expand=1&template=repo-request.md)
-- ❌ [Migrate an existing repository](?expand=1&template=migration-request.md)
+- ✅ [Fork a repository](?expand=1&template=fork-repo.md)
+- ❌ [Create a new repository](?expand=1&template=create-repo.md)
+- ❌ [Migrate an existing repository](?expand=1&template=migrate-repo.md)
 
 ## Developer Contributions
 
