@@ -16,17 +16,21 @@ on: # Only trigger on manual input
       user:
         description: 'GitHub user requesting the fork'
         required: true
-      addUser:
-        description: 'Add GitHub user to org if missing?'
+      checkUser:
+        description: 'Enforce organization membership for GitHub user'
         required: true
         default: true
+      promoteUser:
+        description: 'Promote GitHub user to admin of the forked repo'
+        required: true
+        default: false
 
 jobs:
   run:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: wayfair-incubator/forker@releases/v0.0.4
+      - uses: wayfair-incubator/forker@v0.0.5
         name: "⑂ fork request"
         with:
           # Enforce current list of OSPO-approved licenses
@@ -38,4 +42,5 @@ jobs:
           owner: ${{ github.event.inputs.owner }}
           org: ${{ github.event.inputs.org }}
           user: ${{ github.event.inputs.user }}
-          addUser: ${{ github.event.inputs.addUser }}
+          checkUser: ${{ github.event.inputs.checkUser }}
+          promoteUser: ${{ github.event.inputs.promoteUser }}
