@@ -1,6 +1,6 @@
 name: stale
 
-on: # Identify and close stale issues / pull requests
+on:
   schedule:
   - cron: "0 0 * * 0"
 
@@ -10,9 +10,9 @@ jobs:
     permissions:
       issues: write
       pull-requests: write
-
     steps:
-    - uses: actions/stale@v5
+    - name: 📆 mark stale PRs # Automatically marks inactive PRs as stale
+      uses: actions/stale@v5
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         days-before-stale: 60
