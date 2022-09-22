@@ -31,5 +31,5 @@ jobs:
       - name: 🍠 lint yaml requests # Validates user-submitted YAML (.yml) files
         uses: ibiqlik/action-yamllint@v3
         with:
-          file_or_dir: 'requests/*.yml requests/*.yaml'
+          file_or_dir: 'requests/**/*.yml requests/**/*.yaml'
 
