@@ -1,5 +1,5 @@
---- # Example repository fork request: tremor-runtime.yml
-github_user: lelia # Your personal GitHub account name (eg. 'lelia' from https://github.com/lelia)
-repo_owner: tremor-rs # The name of the org / account that owns the repository you wish to fork (eg. 'tremor-rs' from https://github.com/tremor-rs)
-repo_name: tremor-runtime # The name of the repository that you wish to fork (eg. 'tremor-runtime' from https://github.com/tremor-rs/tremor-runtime)
-admin_perms: false # Whether or not you require administrator permissions for the repository you are forking (eg. 'true')
+---
+github_user: lelia
+repo_owner: tremor-rs
+repo_name: tremor-runtime
+admin_perms: false
