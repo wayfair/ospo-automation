@@ -10,9 +10,17 @@
 
 Automation workflows for Wayfair's [Open Source Program Office](https://wayfair.github.io).
 
-## Basic Usage
+## Self-Service
 
-Currently, the OSPO Automation project has a single workflow available for creating repository forks.
+🎉 Developers who wish to fork a repository into [`/wayfair-contribs`](https://github.com/wayfair-contribs) for upstream contributions can now leverage our self-service PR workflow!
+
+> 💡 Please review the **[Fork a repository README](requests/fork/README.md)** and **[Pull Request template](.github/PULL_REQUEST_TEMPLATE/fork-repo.md)** to get started.
+
+In the first phase, requests filed as PRs will be semi-automated, with some manual verification and processing still performed by the OSPO team upon receipt. However, in the future, this workflow will become fully self-serviceable through automated PR checks and GitHub Actions-driven workflows!
+
+## Internal Usage
+
+Currently, the OSPO Automation project has a single workflow available for creating repository forks. Note that presently, this workflow is only intended for internal usage by the OSPO team. In the future, this workflow will become fully self-serviceable through an automated PR workflow.
 
 To trigger this workflow manually, follow these steps:
 
