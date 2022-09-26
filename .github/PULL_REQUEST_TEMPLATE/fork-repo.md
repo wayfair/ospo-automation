@@ -14,7 +14,7 @@ This PR template is intended for requesting [repository forks](https://docs.gith
 
 - [ ] I have confirmed that I am already a member of the `/wayfair-contribs` GitHub organization
 - [ ] I have confirmed that the repository I wish to fork is compliant with our [approved list of licenses](#description)
-- [ ] I have reviewed the [Fork a repository README] and created a compliant `.yml` request file
+- [ ] I have reviewed the [Fork a repository README](requests/fork/README.md) and created a compliant `.yml` request file
 - [ ] I have created a git branch name which follows the documented pattern of `fork-repo-<REPO-NAME>`
 
 > 💡 In the initial rollout of this workflow, requests filed as PRs will be semi-automated, with some manual verification and processing still performed by the OSPO team upon receipt. However, in the future, this workflow will become fully self-serviceable through automated PR checks and GitHub Actions-driven workflows! 🎉
