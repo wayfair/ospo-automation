@@ -1,4 +1,4 @@
-name: fork
+name: manual
 
 on: # Only trigger on manual input
   workflow_dispatch:
