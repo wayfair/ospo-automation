@@ -10,7 +10,7 @@ GITHUB_USER=$(get_yaml_value '.github_user')
 REPO_OWNER=$(get_yaml_value '.repo_owner')
 REPO_NAME=$(get_yaml_value '.repo_name')
 REPO_URL="https://github.com/${REPO_OWNER}/${REPO_NAME}"
-ADMIN_PERMS=$(get_yaml_value '.admin_perms')
+PROMOTE_USER=$(get_yaml_value '.admin_perms')
 
 # Assert user filing PR is the user defined in YAML
 if [[ "${GITHUB_USER}" == "${GITHUB_ACTOR}" ]]; then
@@ -28,3 +28,5 @@ else
     echo "Unable to verify repository URL! Tried: https://github.com/${REPO_OWNER}/${REPO_NAME}"
     exit 1
 fi
+
+echo "PROMOTE_USER=${PROMOTE_USER}" >> $GITHUB_ENV
