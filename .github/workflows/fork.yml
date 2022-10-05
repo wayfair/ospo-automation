@@ -42,7 +42,7 @@ jobs:
         with:
           github-token: ${{ secrets.OSPO_API_TOKEN }}
       - name: 🚀 create fork
-        if: ${{ (env.REQUEST_TYPE == 'fork' }}
+        # if: ${{ (env.REQUEST_TYPE == 'fork' }}
         # using forker branch which sets output value for forkUrl
         uses: lelia/forker@set-fork-url-output
         with:
