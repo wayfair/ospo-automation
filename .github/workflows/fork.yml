@@ -27,23 +27,16 @@ jobs:
         with:
           file_or_dir: 'requests/fork/**'
           config_file: '.yamllint.yml'
-      # - name: 📦 rename files
-      #   run: ${SCRIPTS_DIR}/rename.sh
-      #   shell: bash
       - name: 📑 parse fork request
         run: ${SCRIPTS_DIR}/parse_fork.sh
         shell: bash
-      # - name: 🗄 push files
-      #   run: ${SCRIPTS_DIR}/push.sh
-      #   shell: bash
       - name: ✅ approve PR
         if: ${{ success() }}
         uses: hmarr/auto-approve-action@v2
         with:
           github-token: ${{ secrets.OSPO_API_TOKEN }}
       - name: 🚀 create fork
-        # if: ${{ (env.REQUEST_TYPE == 'fork' }}
-        # using forker branch which sets output value for forkUrl
+        # Using forker branch which sets output value for forkUrl
         uses: lelia/forker@set-fork-url-output
         with:
           token: ${{ secrets.OSPO_API_TOKEN }}
