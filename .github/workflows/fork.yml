@@ -1,0 +1,69 @@
+name: fork
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'requests/fork/*.yml'
+      - 'requests/fork/*.yaml'
+
+env:
+  ROOT_DIR: "./requests/fork"
+  SCRIPTS_DIR: ".github/workflows/scripts"
+  GITHUB_ACTOR: ${{ github.actor }}
+  GITHUB_PR: ${{ github.event.number }}
+  GITHUB_ORG: "wayfair-contribs"
+  LICENSE_STRING: "0bsd\napache-2.0\nbsd-2-clause\nbsd-3-clause\nmit"
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+      - name: 🍠 lint yaml requests
+        uses: ibiqlik/action-yamllint@v3
+        with:
+          file_or_dir: 'requests/fork/**'
+          config_file: '.yamllint.yml'
+      # - name: 📦 rename files
+      #   run: ${SCRIPTS_DIR}/rename.sh
+      #   shell: bash
+      - name: 📑 parse fork request
+        run: ${SCRIPTS_DIR}/parse_fork.sh
+        shell: bash
+      # - name: 🗄 push files
+      #   run: ${SCRIPTS_DIR}/push.sh
+      #   shell: bash
+      - name: ✅ approve PR
+        if: ${{ success() }}
+        uses: hmarr/auto-approve-action@v2
+        with:
+          github-token: ${{ secrets.OSPO_API_TOKEN }}
+      - name: 🚀 create fork
+        if: ${{ (env.REQUEST_TYPE == 'fork' }}
+        # using forker branch which sets output value for forkUrl
+        uses: lelia/forker@set-fork-url-output
+        with:
+          token: ${{ secrets.OSPO_API_TOKEN }}
+          repo: ${{ env.REPO_NAME }}
+          owner: ${{ env.REPO_OWNER }}
+          org: ${{ env.GITHUB_ORG }}
+          user: ${{ env.GITHUB_USER }}
+          checkUser: true
+          promoteUser: ${{ env.PROMOTE_USER }}
+          licenseAllowlist: ${{ env.LICENSE_STRING }}
+      - name: 💬 add comment
+        if: ${{ steps.fork.outcome == 'success' }}
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.OSPO_API_TOKEN }}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: "🎉 All set @${{ env.GITHUB_USER }}! \
+              Here's your fork: ${{ steps.fork.outputs.forkUrl }}"
+            })
