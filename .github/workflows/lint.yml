@@ -24,11 +24,3 @@ jobs:
         uses: suzuki-shunsuke/github-action-renovate-config-validator@v0.1.2
         with:
           config_file_path: 'renovate.json'
-  # yaml:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - name: 🍠 lint yaml requests # Validates user-submitted YAML (.yml) files
-  #       uses: ibiqlik/action-yamllint@v3
-  #       with:
-  #         file_or_dir: 'requests/**/*.yml'
