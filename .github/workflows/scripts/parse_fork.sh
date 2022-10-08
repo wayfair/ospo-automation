@@ -9,18 +9,6 @@ if [ "$?" -eq 0 ]; then
     # Move file to a dedicated subfolder for further processing
     export REQUEST_FILE="${YAML_FILE}"
     echo "Found request file to process: ${REQUEST_FILE}"
-    # echo ${YAML_FILE} | while read YAML_FILE; do
-    #     BASE_DIR=$(dirname ${YAML_FILE})
-    #     BASE_FILE=$(basename ${YAML_FILE})
-    #     TARGET_DIR="${ROOT_DIR}/${GITHUB_ACTOR}"
-    #     TARGET_FILE="${GITHUB_PR}_${BASE_FILE}"
-    #     DESTINATION="${TARGET_DIR}/${TARGET_FILE}"
-    #     echo "Processing user-submitted YAML file: ${YAML_FILE}"
-    #     mkdir -p ${TARGET_DIR}
-    #     echo "Moving YAML file to destination: ${DESTINATION}"
-    #     git mv ${BASE_DIR}/${BASE_FILE} ${DESTINATION}
-    #     echo "REQUEST_FILE=${DESTINATION}" >> $GITHUB_ENV
-    done
 else
     echo "No YAML files to process! Exiting..."
     exit 1
