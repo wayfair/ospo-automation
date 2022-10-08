@@ -22,12 +22,12 @@ jobs:
       - uses: actions/checkout@v3
         with:
           ref: ${{ github.event.pull_request.head.ref }}
-      - name: 🍠 lint yaml requests
+      - name: 🍠 lint yaml
         uses: ibiqlik/action-yamllint@v3
         with:
           file_or_dir: 'requests/fork/**'
           config_file: '.yamllint.yml'
-      - name: 📑 parse fork request
+      - name: 📑 parse request
         run: ${SCRIPTS_DIR}/parse_fork.sh
         shell: bash
       - name: ✅ approve PR
