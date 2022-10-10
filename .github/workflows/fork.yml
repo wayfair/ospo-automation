@@ -47,6 +47,7 @@ jobs:
           checkUser: true
           promoteUser: ${{ env.PROMOTE_USER }}
           licenseAllowlist: ${{ env.LICENSE_STRING }}
+        id: fork
       - name: 💬 add comment
         if: ${{ steps.fork.outcome == 'success' }}
         uses: actions/github-script@v6
