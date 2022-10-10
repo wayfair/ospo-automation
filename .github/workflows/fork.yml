@@ -9,7 +9,7 @@ on:
 
 env:
   ROOT_DIR: "./requests/fork"
-  SCRIPTS_DIR: ".github/workflows/scripts"
+  SCRIPTS_DIR: ".github/workflows/scripts/fork"
   GITHUB_ACTOR: ${{ github.actor }}
   GITHUB_PR: ${{ github.event.number }}
   GITHUB_ORG: "wayfair-contribs"
@@ -28,7 +28,7 @@ jobs:
           file_or_dir: 'requests/fork/**'
           config_file: '.yamllint.yml'
       - name: 📑 parse request
-        run: ${SCRIPTS_DIR}/parse_fork.sh
+        run: ${SCRIPTS_DIR}/parse.sh
         shell: bash
       - name: ✅ approve PR
         if: ${{ success() }}
@@ -61,3 +61,9 @@ jobs:
               body: "🎉 All set @${{ env.GITHUB_USER }}! \
               Here's your fork: ${{ steps.fork.outputs.forkUrl }}"
             })
+      - name: 📦 process request
+        if: ${{ steps.fork.outcome == 'success' }}
+        run: |
+          ${SCRIPTS_DIR}/move.sh
+          ${SCRIPTS_DIR}/push.sh
+        shell: bash
