@@ -41,7 +41,7 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: "🚨 Hey @${{ env.GITHUB_USER }}, looks like there was an issue processing your fork request! \
+              body: "🚨 Hey @${{ env.GITHUB_ACTOR }}, looks like there was an issue processing your fork request! \
               Please ensure you've committed a properly-formatted YAML (.yml) file to the 'requests/fork/' directory.""
             })
       - name: ✅ approve PR
@@ -72,7 +72,7 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: "🎉 All set @${{ env.GITHUB_USER }}! \
+              body: "🎉 All set @${{ env.GITHUB_ACTOR }}! \
               Here's your fork: ${{ steps.fork.outputs.forkUrl }}"
             })
       - name: 📦 process request
