@@ -30,6 +30,20 @@ jobs:
       - name: 📑 parse request
         run: ${SCRIPTS_DIR}/parse.sh
         shell: bash
+        id: parse
+      - name: 🚨 handle error
+        if: ${{ failure() }}
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.OSPO_API_TOKEN }}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: "🚨 Hey @${{ env.GITHUB_USER }}, looks like there was an issue processing your fork request! \
+              Please ensure you've committed a properly-formatted YAML (.yml) file to the 'requests/fork/' directory.""
+            })
       - name: ✅ approve PR
         if: ${{ success() }}
         uses: hmarr/auto-approve-action@v2
