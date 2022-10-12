@@ -16,19 +16,11 @@
     admin_perms: false # Whether or not you require administrator permissions for the repository you are forking (eg. 'true')
     ```
 
-1. Once you've pushed up your changes, navigate to the [Pull Request](https://github.com/wayfair/ospo-automation/compare) page on [`ospo-automation`](https://github.com/wayfair/ospo-automation) and make sure your branch is selected in the `compare` menu:
+1. Once you've pushed up your changes, navigate to the [Pull Request](https://github.com/wayfair/ospo-automation/compare) page on [`ospo-automation`](https://github.com/wayfair/ospo-automation) and make sure your branch is selected in the `compare` menu before hitting `Create pull request`:
 
     ![compare](../../img/compare.png)
 
-1. In order to interact with the OSPO Automation PR menu, you must switch the page view to `Preview` mode by selecting the tab located next to `Write`:
-
-    ![open](../../img/open.png)
-
-1. The PR menu should now be rendered with clickable links. Select `Fork a repository` from the `Self-Service Requests` menu:
-
-    ![preview](../../img/preview.png)
-
-1. The `Fork a repository` PR template should now load. Again, click `Preview` to follow the richly-formatted instructions:
+1. This should bring you to the `Fork a repository` PR template. Before proceeding, click the `Preview` tab (located next to `Write`) to follow the richly-formatted instructions:
 
     ![fork](../../img/fork.png)
 
