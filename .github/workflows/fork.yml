@@ -30,7 +30,6 @@ jobs:
       - name: 📑 parse request
         run: ${SCRIPTS_DIR}/parse.sh
         shell: bash
-        id: parse
       - name: 🚨 handle error
         if: ${{ failure() }}
         uses: actions/github-script@v6
@@ -46,12 +45,13 @@ jobs:
             })
       - name: ✅ approve PR
         if: ${{ success() }}
-        uses: hmarr/auto-approve-action@v2
+        # Using contribs fork to make action compliant with migration to node v16
+        uses: wayfair-contribs/auto-approve-action@update-actions-runner-node
         with:
           github-token: ${{ secrets.OSPO_API_TOKEN }}
       - name: 🚀 create fork
-        # Using forker branch which sets output value for forkUrl
-        uses: lelia/forker@set-fork-url-output
+        # Using forker release which sets output value for forkUrl
+        uses: wayfair-incubator/forker@v0.0.6
         with:
           token: ${{ secrets.OSPO_API_TOKEN }}
           repo: ${{ env.REPO_NAME }}
