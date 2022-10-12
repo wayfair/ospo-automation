@@ -42,7 +42,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               body: "🚨 Hey @${{ env.GITHUB_ACTOR }}, looks like there was an issue processing your fork request! \
-              Please ensure you've committed a properly-formatted YAML (`.yml``) file to the `requests/fork/` directory."
+              Please ensure you've committed a properly-formatted YAML (`.yml`) file to the `requests/fork/` directory."
             })
       - name: ✅ approve PR
         if: ${{ success() }}
