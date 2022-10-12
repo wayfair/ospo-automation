@@ -23,4 +23,4 @@ Note that by _not_ including a description, you are asking reviewers to do extra
 - [ ] New code contribution is covered by automated tests
 - [ ] All new and existing tests pass
 
-🚨 Not the PR template you wanted? Click the `Preview` tab above, then navigate back to the [OSPO Automation PR Menu](?expand=1)!
+🚨 Not the PR template you wanted? Click the `Preview` tab above, then navigate to the [OSPO Automation PR Menu](?expand=1&template=pr-menu.md)!
