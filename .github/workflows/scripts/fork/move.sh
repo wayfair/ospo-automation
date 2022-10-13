@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "Got value of request file from parse.sh script: ${REQUEST_FILE}"
+
 YAML_FILE=$(find ${ROOT_DIR} -type f -maxdepth 1 \( -iname \*.yml -o -iname \*.yaml \))
 
 # Find uncategorized YAML files added to the ./requests directory

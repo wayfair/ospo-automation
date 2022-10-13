@@ -6,8 +6,8 @@ YAML_FILE=$(find ${ROOT_DIR} -type f -maxdepth 1 \( -iname \*.yml -o -iname \*.y
 echo ${YAML_FILE} | grep .
 # Only proceed if valid YAML files are found
 if [ "$?" -eq 0 ]; then
-    # Move file to a dedicated subfolder for further processing
     export REQUEST_FILE="${YAML_FILE}"
+    echo "REQUEST_FILE=${REQUEST_FILE}" >> $GITHUB_ENV
     echo "Found request file to process: ${REQUEST_FILE}"
 else
     echo "No YAML files to process! Exiting..."
