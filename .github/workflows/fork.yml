@@ -74,12 +74,12 @@ jobs:
       #         body: "🎉 All set @${{ env.GITHUB_ACTOR }}! \
       #         Here's your fork: ${{ steps.fork.outputs.forkUrl }}"
       #       })
-      # - name: 📦 process request
-      #   if: ${{ success() }}
-      #   run: |
-      #     ${SCRIPTS_DIR}/move.sh
-      #     ${SCRIPTS_DIR}/push.sh
-      #   shell: bash
+      - name: 📦 process request
+        if: ${{ success() }}
+        run: |
+          ${SCRIPTS_DIR}/move.sh
+          # ${SCRIPTS_DIR}/push.sh
+        shell: bash
       # - name: 🔁 merge PR
       #   if: ${{ success() }}
       #   uses: pascalgn/automerge-action@v0.15.3
