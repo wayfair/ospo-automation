@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: wayfair-incubator/forker@v0.0.5
+      - uses: wayfair-incubator/forker@v0.0.6
         name: "⑂ fork request"
         with:
           # Enforce current list of OSPO-approved licenses
