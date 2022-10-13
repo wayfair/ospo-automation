@@ -6,7 +6,7 @@
 
 1. Create a new YAML file (`.yml`) based on the same repository name (eg. `tremor-runtime.yml`) under the `requests/fork/` directory.
 
-1. Using the example below or [linked here](../../wayfair-contribs/tremor-runtime.yml), provide the required details in your newly-created YAML file, and commit the changes to your branch:
+1. Using the example below or [linked here](../../wayfair-contribs/tremor-runtime/tremor-runtime.yml), provide the required details in your newly-created YAML file, and commit the changes to your branch:
 
     ```yaml
     --- # Save this file as: 'requests/fork/<REPO-NAME>.yml'
