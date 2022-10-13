@@ -24,7 +24,7 @@
 
     ![fork](../../img/fork.png)
 
-1. Please ensure you've satisfied all the criteria in the PR Checklist before submitting the PR, otherwise it is likely to fail CI validation checks:
+1. Please ensure you've satisfied all the criteria in the PR Checklist before submitting the PR:
 
     ![checklist](../../img/checklist.png)
 
