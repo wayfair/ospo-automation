@@ -1,46 +1,83 @@
 name: fork
 
-on: # Only trigger on manual input
-  workflow_dispatch:
-    inputs:
-      owner:
-        description: 'Owner of GitHub repo to be forked'
-        required: true
-      repo:
-        description: 'GitHub repo to be forked'
-        required: true
-      org:
-        description: 'GitHub org to fork the repo into'
-        required: true
-        default: wayfair-contribs
-      user:
-        description: 'GitHub user requesting the fork'
-        required: true
-      checkUser:
-        description: 'Enforce organization membership for GitHub user?'
-        required: true
-        default: true
-      promoteUser:
-        description: 'Promote GitHub user to admin of the forked repo?'
-        required: true
-        default: false
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'requests/fork/*.yml'
+      - 'requests/fork/*.yaml'
+
+env:
+  ROOT_DIR: "./requests/fork"
+  SCRIPTS_DIR: ".github/workflows/scripts/fork"
+  GITHUB_ACTOR: ${{ github.actor }}
+  GITHUB_PR: ${{ github.event.number }}
+  GITHUB_ORG: "wayfair-contribs"
+  LICENSE_STRING: "0bsd\napache-2.0\nbsd-2-clause\nbsd-3-clause\nmit"
 
 jobs:
-  run:
+  demo:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: wayfair-incubator/forker@v0.0.5
-        name: "⑂ fork request"
         with:
-          # Enforce current list of OSPO-approved licenses
-          licenseAllowlist: "0bsd\napache-2.0\nbsd-2-clause\nbsd-3-clause\nmit" 
-          # Using API token for lhasa-ospo service account
+          ref: ${{ github.event.pull_request.head.ref }}
+      - name: 🍠 lint yaml
+        uses: ibiqlik/action-yamllint@v3
+        with:
+          file_or_dir: 'requests/fork/**'
+          config_file: '.yamllint.yml'
+      - name: 📑 parse request
+        run: ${SCRIPTS_DIR}/parse.sh
+        shell: bash
+      - name: 🚨 handle error
+        if: ${{ failure() }}
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.OSPO_API_TOKEN }}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: "🚨 Hey @${{ env.GITHUB_ACTOR }}, looks like there was an issue processing your fork request! \
+              Please ensure you've committed a properly-formatted YAML (`.yml`) file to the `requests/fork/` directory."
+            })
+      - name: ✅ approve PR
+        if: ${{ success() }}
+        # Using contribs fork to make action compliant with migration to node v16
+        uses: wayfair-contribs/auto-approve-action@update-actions-runner-node
+        with:
+          github-token: ${{ secrets.OSPO_API_TOKEN }}
+      - name: 🚀 create fork
+        # Using forker release which sets output value for forkUrl
+        uses: wayfair-incubator/forker@v0.0.6
+        with:
           token: ${{ secrets.OSPO_API_TOKEN }}
-          # Manual user inputs from workflow dispatch
-          repo:  ${{ github.event.inputs.repo }}
-          owner: ${{ github.event.inputs.owner }}
-          org: ${{ github.event.inputs.org }}
-          user: ${{ github.event.inputs.user }}
-          checkUser: ${{ github.event.inputs.checkUser }}
-          promoteUser: ${{ github.event.inputs.promoteUser }}
+          repo: ${{ env.REPO_NAME }}
+          owner: ${{ env.REPO_OWNER }}
+          org: ${{ env.GITHUB_ORG }}
+          user: ${{ env.GITHUB_USER }}
+          checkUser: true
+          promoteUser: ${{ env.PROMOTE_USER }}
+          licenseAllowlist: ${{ env.LICENSE_STRING }}
+        id: fork
+      - name: 💬 add comment
+        if: ${{ success() }}
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.OSPO_API_TOKEN }}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: "🎉 All set @${{ env.GITHUB_ACTOR }}! \
+              Here's your fork: ${{ steps.fork.outputs.forkUrl }}"
+            })
+      - name: 📦 process request
+        if: ${{ success() }}
+        run: |
+          ${SCRIPTS_DIR}/move.sh
+          ${SCRIPTS_DIR}/push.sh
+        shell: bash

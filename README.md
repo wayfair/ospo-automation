@@ -12,11 +12,15 @@ Automation workflows for Wayfair's [Open Source Program Office](https://wayfair.
 
 ## Self-Service
 
-🎉 Developers who wish to fork a repository into [`/wayfair-contribs`](https://github.com/wayfair-contribs) for upstream contributions can now leverage our self-service PR workflow!
+Wayfair developers who wish to fork an open source repository into [`/wayfair-contribs`](https://github.com/wayfair-contribs) for upstream contributions can now leverage our self-service PR workflow.
 
-> 💡 Please review the **[Fork a repository README](requests/fork/README.md)** and **[Pull Request template](.github/PULL_REQUEST_TEMPLATE/fork-repo.md)** to get started.
+> 🎉 Please review the **[Fork a repository README](requests/fork/README.md)** to get started!
 
-In the first phase, requests filed as PRs will be semi-automated, with some manual verification and processing still performed by the OSPO team upon receipt. However, in the future, this workflow will become fully self-serviceable through automated PR checks and GitHub Actions-driven workflows!
+In the future, developers will also leverage PR workflows to request new projects in [`/wayfair-incubator`](https://github.com/wayfair-incubator), nominate mature projects to 'graduate' to [`/wayfair`](https://github.com/wayfair), and more.
+
+> 💡 During the beta rollout of this fully self-service workflow, you may encounter some errors or edge cases we have not accounted for yet. For any issues or feedback on using this workflow, please reach out to [Wayfair OSPO](https://wayfair.github.io) internally on Slack (`#open-source-forum`) and we can lend a hand!
+
+---
 
 ## Internal Usage
 
