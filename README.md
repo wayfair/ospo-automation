@@ -1,6 +1,6 @@
 # 🔄 OSPO Automation
 
-[![Release](https://img.shields.io/badge/release-v0.0.3-blue.svg)](CHANGELOG.md)
+[![Release](https://img.shields.io/github/v/release/wayfair/ospo-automation?display_name=tag)](https://github.com/wayfair/ospo-automation/releases)
 [![Lint](https://github.com/wayfair/ospo-automation/actions/workflows/lint.yml/badge.svg?branch=main)](https://github.com/wayfair/ospo-automation/actions/workflows/lint.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-orange.svg)](LICENSE)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)](CODE_OF_CONDUCT.md)
