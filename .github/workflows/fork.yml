@@ -43,45 +43,45 @@ jobs:
               body: "🚨 Hey @${{ env.GITHUB_ACTOR }}, looks like there was an issue processing your fork request! \
               Please ensure you've committed a properly-formatted YAML (`.yml`) file to the `requests/fork/` directory."
             })
-      # - name: ✅ approve PR
-      #   if: ${{ success() }}
-      #   # Using contribs fork to make action compliant with migration to node v16
-      #   uses: wayfair-contribs/auto-approve-action@update-actions-runner-node
-      #   with:
-      #     github-token: ${{ secrets.OSPO_API_TOKEN }}
-      # - name: 🚀 create fork
-      #   # Using forker release which sets output value for forkUrl
-      #   uses: wayfair-incubator/forker@v0.0.6
-      #   with:
-      #     token: ${{ secrets.OSPO_API_TOKEN }}
-      #     repo: ${{ env.REPO_NAME }}
-      #     owner: ${{ env.REPO_OWNER }}
-      #     org: ${{ env.GITHUB_ORG }}
-      #     user: ${{ env.GITHUB_USER }}
-      #     checkUser: true
-      #     promoteUser: ${{ env.PROMOTE_USER }}
-      #     licenseAllowlist: ${{ env.LICENSE_STRING }}
-      # - name: 💬 add comment
-      #   if: ${{ success() }}
-      #   uses: actions/github-script@v6
-      #   with:
-      #     github-token: ${{ secrets.OSPO_API_TOKEN }}
-      #     script: |
-      #       github.rest.issues.createComment({
-      #         issue_number: context.issue.number,
-      #         owner: context.repo.owner,
-      #         repo: context.repo.repo,
-      #         body: "🎉 All set @${{ env.GITHUB_ACTOR }}! \
-      #         Here's your fork: ${{ steps.fork.outputs.forkUrl }}"
-      #       })
+      - name: ✅ approve PR
+        if: ${{ success() }}
+        # Using contribs fork to make action compliant with migration to node v16
+        uses: wayfair-contribs/auto-approve-action@update-actions-runner-node
+        with:
+          github-token: ${{ secrets.OSPO_API_TOKEN }}
+      - name: 🚀 create fork
+        # Using forker release which sets output value for forkUrl
+        uses: wayfair-incubator/forker@v0.0.6
+        with:
+          token: ${{ secrets.OSPO_API_TOKEN }}
+          repo: ${{ env.REPO_NAME }}
+          owner: ${{ env.REPO_OWNER }}
+          org: ${{ env.GITHUB_ORG }}
+          user: ${{ env.GITHUB_USER }}
+          checkUser: true
+          promoteUser: ${{ env.PROMOTE_USER }}
+          licenseAllowlist: ${{ env.LICENSE_STRING }}
+      - name: 💬 add comment
+        if: ${{ success() }}
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.OSPO_API_TOKEN }}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: "🎉 All set @${{ env.GITHUB_ACTOR }}! \
+              Here's your fork: ${{ steps.fork.outputs.forkUrl }}"
+            })
       - name: 📦 process request
         if: ${{ success() }}
         run: |
           ${SCRIPTS_DIR}/move.sh
-          # ${SCRIPTS_DIR}/push.sh
+          ${SCRIPTS_DIR}/push.sh
         shell: bash
-      # - name: 🔁 merge PR
-      #   if: ${{ success() }}
-      #   uses: pascalgn/automerge-action@v0.15.3
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.OSPO_API_TOKEN }}
+      - name: 🔁 merge PR
+        if: ${{ success() }}
+        uses: pascalgn/automerge-action@v0.15.3
+        env:
+          GITHUB_TOKEN: ${{ secrets.OSPO_API_TOKEN }}
