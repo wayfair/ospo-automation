@@ -22,5 +22,3 @@ This PR template is intended for Wayfair developers requesting [repository forks
 - [ ] I have created a git branch name which follows the documented pattern of `fork-repo-<REPO-NAME>`
 
 > 💡 During the beta rollout of this fully self-service workflow, you may encounter some errors or edge cases we have not accounted for yet. For any issues or feedback on using this workflow, please reach out to [Wayfair OSPO](https://wayfair.github.io) internally on Slack (`#open-source-forum`) and we can lend a hand!
-
-Not the PR template you wanted? Click the `Preview` tab above, then navigate to the [OSPO Automation PR Menu](?expand=1&template=pr-menu.md)!
