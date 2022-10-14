@@ -1,5 +1,17 @@
 # 🔁 Fork a repository
 
+## Prerequisites
+
+This self-service PR workflow is intended for Wayfair developers requesting [repository forks](https://docs.github.com/en/get-started/quickstart/fork-a-repo) into the [`/wayfair-contribs`](https://github.com/wayfair-contribs) organization, to enable upstream contributions to existing open source projects.
+
+**The repository you are requesting a fork of must comply with Wayfair's current list of approved [open source licenses](https://opensource.org/licenses/alphabetical):**
+
+- MIT
+- BSD (3-clause, 2-clause, 0-clause)
+- Apache (1.0, 1.1, 2.0)
+
+**You must already be a member of Wayfair's public GitHub organizations in order to use this workflow.** If you need access, please refer to internal Wayfair OSPO documentation on adding yourself to the `ospo-names` repository, or reach out on our internal Slack channel (`#open-source-forum`) if you need further assistance!
+
 ## Instructions
 
 1. [Clone](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) this [`ospo-automation`](https://github.com/wayfair/ospo-automation) repository, and create a new branch titled `fork-repo-<REPO-NAME>`, where `<REPO-NAME>` represents the name of the repository you wish to fork.
