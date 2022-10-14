@@ -16,15 +16,15 @@
     admin_perms: false # Whether or not you require administrator permissions for the repository you are forking (eg. 'true')
     ```
 
-1. Once you've pushed up your changes, you're ready to open a Pull Request using the `Fork a repository` template. If you're not sure how to do this, navigate to the [Pull Request](https://github.com/wayfair/ospo-automation/compare) page on [`ospo-automation`](https://github.com/wayfair/ospo-automation) and make sure your branch is selected in the `compare` menu before hitting `Create pull request`:
+1. Once you've pushed up your changes, you're ready to open a Pull Request using the `Fork a repository` PR template. If you're not sure how to do this, navigate to the [Pull Request](https://github.com/wayfair/ospo-automation/compare) page on [`ospo-automation`](https://github.com/wayfair/ospo-automation) and make sure your branch is selected in the `compare` menu before hitting `Create pull request`:
 
     ![compare](../../img/compare.png)
 
-1. This should bring you to the `Fork a repository` PR template. Before proceeding, click the `Preview` tab (located next to `Write`) to follow the richly-formatted instructions:
+1. This should bring you to the `Fork a repository` template. Before proceeding, click the `Preview` tab (located next to `Write`) to follow the richly-formatted instructions:
 
     ![fork](../../img/fork.png)
 
-1. Please ensure you've satisfied all the criteria in the PR Checklist before submitting the PR:
+1. Please ensure you've satisfied all the criteria in the PR Checklist before submitting your Pull Request:
 
     ![checklist](../../img/checklist.png)
 
