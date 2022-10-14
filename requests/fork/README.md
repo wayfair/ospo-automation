@@ -16,7 +16,7 @@
     admin_perms: false # Whether or not you require administrator permissions for the repository you are forking (eg. 'true')
     ```
 
-1. Once you've pushed up your changes, navigate to the [Pull Request](https://github.com/wayfair/ospo-automation/compare) page on [`ospo-automation`](https://github.com/wayfair/ospo-automation) and make sure your branch is selected in the `compare` menu before hitting `Create pull request`:
+1. Once you've pushed up your changes, you're ready to open a Pull Request using the `Fork a repository` template. If you're not sure how to do this, navigate to the [Pull Request](https://github.com/wayfair/ospo-automation/compare) page on [`ospo-automation`](https://github.com/wayfair/ospo-automation) and make sure your branch is selected in the `compare` menu before hitting `Create pull request`:
 
     ![compare](../../img/compare.png)
 
