@@ -2,7 +2,7 @@
 
 ## Instructions
 
-1. Clone this [`ospo-automation`](https://github.com/wayfair/ospo-automation) repository, and create a new branch titled `fork-repo-<REPO-NAME>`, where `<REPO-NAME>` represents the name of the repository you wish to fork.
+1. [Clone](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) this [`ospo-automation`](https://github.com/wayfair/ospo-automation) repository, and create a new branch titled `fork-repo-<REPO-NAME>`, where `<REPO-NAME>` represents the name of the repository you wish to fork.
 
 1. Create a new YAML file (`.yml`) based on the same repository name (eg. `tremor-runtime.yml`) under the `requests/fork/` directory.
 
