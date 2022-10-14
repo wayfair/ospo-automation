@@ -4,13 +4,21 @@
 
 This self-service PR workflow is intended for Wayfair developers requesting [repository forks](https://docs.github.com/en/get-started/quickstart/fork-a-repo) into the [`/wayfair-contribs`](https://github.com/wayfair-contribs) organization, to enable upstream contributions to existing open source projects.
 
-**The repository you are requesting a fork of must comply with Wayfair's current list of approved [open source licenses](https://opensource.org/licenses/alphabetical):**
+### Organization Membership
+
+**You must already be a member of [Wayfair's](https://github.com/wayfair) [public](https://github.com/wayfair-incubator) [GitHub](https://github.com/wayfair-contribs) organizations in order to use this workflow.** 
+
+> 💡 If you need access, please refer to internal Wayfair OSPO documentation on adding yourself to the `ospo-names` repository, or reach out on our internal Slack channel (`#open-source-forum`) if you need further assistance!
+
+### License Compliance
+
+**The repository you are requesting a fork of must also comply with Wayfair's current list of approved [open source licenses](https://opensource.org/licenses/alphabetical):**
 
 - MIT
 - BSD (3-clause, 2-clause, 0-clause)
 - Apache (1.0, 1.1, 2.0)
 
-**You must already be a member of Wayfair's public GitHub organizations in order to use this workflow.** If you need access, please refer to internal Wayfair OSPO documentation on adding yourself to the `ospo-names` repository, or reach out on our internal Slack channel (`#open-source-forum`) if you need further assistance!
+> 💡 If you happen across a project you're eager to contribute to, but are unsure whether it complies with Wayfair's license policy, drop us a line in `#open-source-forum` on Slack!
 
 ## Instructions
 
@@ -48,4 +56,4 @@ This self-service PR workflow is intended for Wayfair developers requesting [rep
 
     ![approve](../../img/approve.png)
 
-💡 If you experience any issues with this workflow, please reach out to [Wayfair OSPO](https://wayfair.github.io) internally on Slack (`#open-source-forum`) and we can lend a hand!
+> 💡 If you experience any issues with this workflow, please reach out to [Wayfair OSPO](https://wayfair.github.io) internally on Slack (`#open-source-forum`) and we can lend a hand!
