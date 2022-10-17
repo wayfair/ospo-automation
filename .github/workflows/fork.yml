@@ -45,12 +45,10 @@ jobs:
             })
       - name: ✅ approve PR
         if: ${{ success() }}
-        # Using contribs fork to make action compliant with migration to node v16
-        uses: wayfair-contribs/auto-approve-action@update-actions-runner-node
+        uses: hmarr/auto-approve-action@v3
         with:
           github-token: ${{ secrets.OSPO_API_TOKEN }}
       - name: 🚀 create fork
-        # Using forker release which sets output value for forkUrl
         uses: wayfair-incubator/forker@v0.0.6
         with:
           token: ${{ secrets.OSPO_API_TOKEN }}
