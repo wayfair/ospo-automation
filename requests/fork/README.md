@@ -6,7 +6,7 @@ This self-service PR workflow is intended for Wayfair developers requesting [rep
 
 ### Organization Membership
 
-**You must already be a member of [Wayfair's](https://github.com/wayfair) [public](https://github.com/wayfair-incubator) [GitHub](https://github.com/wayfair-contribs) organizations in order to use this workflow.** 
+**You must already be a member of [Wayfair's](https://github.com/wayfair) [public](https://github.com/wayfair-incubator) [GitHub](https://github.com/wayfair-contribs) organizations in order to use this workflow.**
 
 > 💡 If you need access, please refer to internal Wayfair OSPO documentation on adding yourself to the `ospo-names` repository, or reach out on our internal Slack channel (`#open-source-forum`) if you need further assistance!
 
