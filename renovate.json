@@ -9,9 +9,6 @@
     "schedule:earlyMondays",
     ":rebaseStalePrs"
   ],
-  "schedule": [
-    "before 3am every weekday"
-  ],
   "packageRules": [
     {
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
