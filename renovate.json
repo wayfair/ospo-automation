@@ -6,7 +6,6 @@
   ],
   "extends": [
     "config:base",
-    ":dependencyDashboard",
     ":rebaseStalePrs"
   ],
   "schedule": [
