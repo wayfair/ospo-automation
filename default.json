@@ -9,20 +9,15 @@
     ":rebaseStalePrs",
     "group:linters",
     "group:allNonMajor",
-    "schedule:earlyMondays",
-    "helpers:pinGitHubActionDigests"
+    "docker:pinDigests",
+    "helpers:pinGitHubActionDigests",
+    "schedule:earlyMondays"
   ],
   "platformAutomerge": true,
   "rebaseWhen": "behind-base-branch",
   "packageRules": [{
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "matchCurrentVersion": "!/^0/",
-      "groupName": "🛠 Minor Updates",
-      "automerge": true
-    },
-    {
       "matchManagers": ["github-actions"],
-      "groupName": "✅ GitHub Actions",
+      "groupName": "GitHub Actions",
       "automerge": true
     }
   ]
