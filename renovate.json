@@ -12,9 +12,6 @@
   "schedule": [
     "before 3am every weekday"
   ],
-  "enabledManagers": [
-    "github-actions"
-  ],
   "packageRules": [
     {
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
