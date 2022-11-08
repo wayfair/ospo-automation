@@ -19,11 +19,11 @@ jobs:
   demo:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # v3
         with:
           ref: ${{ github.event.pull_request.head.ref }}
       - name: 🍠 lint yaml
-        uses: ibiqlik/action-yamllint@v3
+        uses: ibiqlik/action-yamllint@2576378a8e339169678f9939646ee3ee325e845c # v3
         with:
           file_or_dir: 'requests/fork/**'
           config_file: '.yamllint.yml'
@@ -32,7 +32,7 @@ jobs:
         shell: bash
       - name: 🚨 handle error
         if: ${{ failure() }}
-        uses: actions/github-script@v6
+        uses: actions/github-script@d556feaca394842dc55e4734bf3bb9f685482fa0 # v6
         with:
           github-token: ${{ secrets.OSPO_API_TOKEN }}
           script: |
@@ -49,7 +49,7 @@ jobs:
         with:
           github-token: ${{ secrets.OSPO_API_TOKEN }}
       - name: 🚀 create fork
-        uses: wayfair-incubator/forker@v0.0.6
+        uses: wayfair-incubator/forker@f23a86b997e710e6c0600919e1f4f8f30ff0c587 # v0.0.6
         with:
           token: ${{ secrets.OSPO_API_TOKEN }}
           repo: ${{ env.REPO_NAME }}
@@ -62,7 +62,7 @@ jobs:
         id: fork
       - name: 💬 add comment
         if: ${{ success() }}
-        uses: actions/github-script@v6
+        uses: actions/github-script@d556feaca394842dc55e4734bf3bb9f685482fa0 # v6
         with:
           github-token: ${{ secrets.OSPO_API_TOKEN }}
           script: |
