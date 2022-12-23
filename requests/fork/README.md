@@ -36,6 +36,8 @@ This self-service PR workflow is intended for Wayfair developers requesting [rep
     admin_perms: false # Whether or not you require administrator permissions for the repository you are forking (eg. 'true')
     ```
 
+1. Your YAML file should be the only one in the `requests/fork/` directory.
+
 1. Once you've pushed up your changes, you're ready to open a Pull Request using the `Fork a repository` PR template. If you're not sure how to do this, navigate to the [Pull Request](https://github.com/wayfair/ospo-automation/compare) page on [`ospo-automation`](https://github.com/wayfair/ospo-automation) and make sure your branch is selected in the `compare` menu before hitting `Create pull request`:
 
     ![compare](../../img/compare.png)
@@ -52,7 +54,7 @@ This self-service PR workflow is intended for Wayfair developers requesting [rep
 
     ![checks](../../img/checks.png)
 
-1. Once the repository has been forked, the [`lhasa-ospo`](https://github.com/lhasa-ospo) account will comment on the PR with a link, then process the YAML file to a new location for archival purposes.
+1. Once the repository has been forked, the [`lhasa-ospo`](https://github.com/lhasa-ospo) account will comment on the PR with a link, then process the YAML file to a new location for archival purposes. Note that your PR will not actually be merged - the automation that creates the fork is completed while the PR is still open. You may now close your PR.
 
     ![approve](../../img/approve.png)
 
