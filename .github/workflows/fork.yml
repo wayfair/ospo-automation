@@ -19,7 +19,7 @@ jobs:
   demo:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v7
         with:
           ref: ${{ github.event.pull_request.head.ref }}
       - name: 🍠 lint yaml
@@ -32,7 +32,7 @@ jobs:
         shell: bash
       - name: 🚨 handle error
         if: ${{ failure() }}
-        uses: actions/github-script@v6
+        uses: actions/github-script@v9
         with:
           github-token: ${{ secrets.OSPO_API_TOKEN }}
           script: |
@@ -45,7 +45,7 @@ jobs:
             })
       - name: ✅ approve PR
         if: ${{ success() }}
-        uses: hmarr/auto-approve-action@v3
+        uses: hmarr/auto-approve-action@v4.0.0
         with:
           github-token: ${{ secrets.OSPO_API_TOKEN }}
       - name: 🚀 create fork
@@ -62,7 +62,7 @@ jobs:
         id: fork
       - name: 💬 add comment
         if: ${{ success() }}
-        uses: actions/github-script@v6
+        uses: actions/github-script@v9
         with:
           github-token: ${{ secrets.OSPO_API_TOKEN }}
           script: |
