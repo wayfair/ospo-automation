@@ -14,7 +14,7 @@ This PR template is intended for Wayfair developers requesting [repository forks
 
 ## Checklist
 
-> 💡 After you hit the `Create pull request` button below, you'll be able check off tasks from this list:
+> 💡 After you hit the `Create pull request` button below, you'll be able to check off tasks from this list:
 
 - [ ] I have confirmed that I am already a member of the `/wayfair-contribs` GitHub organization
 - [ ] I have confirmed that the repository I wish to fork is compliant with our [approved list of licenses](#description)
