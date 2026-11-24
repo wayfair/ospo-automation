@@ -16,7 +16,7 @@ assignees: ''
 ## Steps to Add
 
 <!---
-NOTE FOR OSPO: If this repository already contains a PR auto-filed by renovate[bot], please be sure to reference it in Step #2 of 'Steps to Add below. Don't forget to delete this note before filing the issue!'
+NOTE FOR OSPO: If this repository already contains a PR auto-filed by renovate[bot], please be sure to reference it in Step #2 of 'Steps to Add' below. Don't forget to delete this note before filing the issue!
 -->
 
 1. Review the guide for [Adding Renovate to Existing Projects](https://wayfair.github.io/docs/managing-dependencies/#existing-projects).
@@ -29,7 +29,7 @@ NOTE FOR OSPO: If this repository already contains a PR auto-filed by renovate[b
 ## Checklist
 
 - [ ] I have read the [Adding Renovate to Existing Projects](https://wayfair.github.io/docs/managing-dependencies/#existing-projects) guide.
-- [ ] I have assigned this issue to myself avoid duplicating efforts with other potential contributors.
+- [ ] I have assigned this issue to myself to avoid duplicating efforts with other potential contributors.
 - [ ] I have verified this repository does not already have Renovate configured (or proposed in an open PR by another contributor).
 - [ ] If the `renovate[bot]` account has already auto-filed a `Configure Renovate` PR in this repository, I confirm that I will create a separate PR under my own GitHub account, using the initial PR as inspiration.
 - [ ] I confirm that I have added Renovate linting to this project's existing CI pipeline, or have created a new linting workflow if one doesn't already exist.
